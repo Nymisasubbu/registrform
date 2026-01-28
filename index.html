@@ -1,0 +1,82 @@
+<html>
+<head>
+    <title>Basic Registration Form</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+    Name:<br>
+    <input type="text" id="name"><br><br>
+
+    Email:<br>
+    <input type="text" id="email"><br><br>
+
+    Password:<br>
+    <input type="password" id="password"><br><br>
+
+    Confirm Password:<br>
+    <input type="password" id="confirmPassword"><br><br>
+
+    Mobile Number:<br>
+    <input type="text" id="mobile"><br><br>
+
+    Gender:<br>
+    <input type="radio" name="gender"> Male
+    <input type="radio" name="gender"> Female<br><br>
+
+    <input type="checkbox" id="terms"> I accept Terms & Conditions<br><br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+<script>
+function validateForm() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+    let mobile = document.getElementById("mobile").value;
+    let terms = document.getElementById("terms").checked;
+
+    if (name === "") {
+        alert("Name is required");
+        return false;
+    }
+
+    if (email === "") {
+        alert("Email is required");
+        return false;
+    }
+
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters");
+        return false;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return false;
+    }
+
+    if (mobile.length !== 10) {
+        alert("Enter a valid 10-digit mobile number");
+        return false;
+    }
+
+    if (!terms) {
+        alert("Please accept Terms & Conditions");
+        return false;
+    }
+
+    alert("Registration Successful!");
+    return true;
+}
+</script>
+
+</body>
+</html>
